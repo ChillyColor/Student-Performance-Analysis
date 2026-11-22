@@ -1,141 +1,129 @@
-# Student Performance Analytics
+# Student Performance Analysis
 
-A Python project built using **NumPy** to analyse student academic performance. It processes student marks across multiple subjects and generates useful statistics, performance insights, and grade distributions.
+A Python command-line project that analyzes student marks using NumPy. The program loads student records from a CSV file and reports class statistics, topper details, subject performance, pass/fail counts, and grade distribution.
 
 ## Features
 
-### 1. Data Loading
-- Load student records from a CSV file.
-- Separate student IDs, student names, subject names, and marks into NumPy arrays.
-- Store marks in a 2D NumPy array for efficient numerical operations.
+- Load student IDs, names, and marks from a CSV dataset
+- Calculate class and subject averages
+- Find the highest and lowest student totals
+- Identify the class topper
+- Compare individual totals with the class average
+- Identify the most difficult and easiest subjects
+- Find students who fail in at least one subject or pass all subjects
+- Calculate subject pass percentages
+- Calculate grade percentages for the complete class
 
-### 2. Basic Statistics
-- Calculate total marks obtained by each student.
-- Calculate average marks for each student.
-- Calculate subject-wise average marks.
-- Find the overall class average.
-- Identify the highest and lowest total marks.
+## Sample Dataset
 
-### 3. Student Performance Analysis
-- Identify the class topper.
-- Find students performing above the class average.
-- Identify students scoring below a specified target.
-- Find students who failed in at least one subject.
-- Identify students who passed all subjects.
-- Find students who failed in multiple subjects.
+The project includes 15 students and 5 subjects in `data/student_marks.csv`:
 
-### 4. Subject Analysis
-- Calculate average marks for each subject.
-- Find the highest and lowest marks in each subject.
-- Identify the easiest and most difficult subjects.
-- Calculate subject-wise pass percentages.
-- Identify the topper in each subject.
+| Column | Description |
+|---|---|
+| `StudentID` | Unique student ID |
+| `Name` | Student name |
+| `Maths` | Mathematics marks |
+| `Physics` | Physics marks |
+| `Chemistry` | Chemistry marks |
+| `ComputerScience` | Computer Science marks |
+| `English` | English marks |
 
-### 5. Grading System
-- Assign grades based on students' average marks.
-- Calculate the number of students in each grade.
-- Calculate grade-wise percentages.
-
-## Technologies Used
-
-- **Python** – Programming language
-- **NumPy** – Numerical computations and array operations
-- **CSV** – Student dataset storage
-- **Pytest** – Unit testing
+The pass mark used by the performance and subject-analysis functions is 35.
 
 ## Project Structure
 
 ```text
-Student_Performance_Analytics/
-│
+Student-Performance-Analysis/
 ├── data/
 │   └── student_marks.csv
-│
 ├── src/
 │   ├── __init__.py
 │   ├── analysis.py
 │   └── data_loder.py
-│
 ├── tests/
 │   └── test_analysis.py
-│
 ├── main.py
-├── README.md
-└── requirements.txt
+└── README.md
 ```
 
-## Installation and Setup
+## Requirements
 
-### 1. Clone the Repository
+- Python 3.10 or later
+- NumPy
+- pytest
 
-```bash
-git clone <your-repository-url>
-```
+## Installation
 
-### 2. Navigate to the Project Directory
+1. Clone the repository:
 
-```bash
-cd Student_Performance_Analytics
-```
+   ```bash
+   git clone https://github.com/ChillyColor/Student-Performance-Analysis.git
+   cd Student-Performance-Analysis
+   ```
 
-### 3. Install Dependencies
+2. Create and activate a virtual environment:
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   python -m venv .venv
+   ```
 
-Alternatively, install the dependencies individually:
+   Windows:
 
-```bash
-pip install numpy pytest
-```
+   ```bash
+   .venv\Scripts\activate
+   ```
 
-## Running the Project
+   macOS/Linux:
 
-Run the main application from the project root directory:
+   ```bash
+   source .venv/bin/activate
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   pip install numpy pytest
+   ```
+
+## Run the Analysis
+
+Run the program from the project root:
 
 ```bash
 python main.py
 ```
 
-The application loads the student dataset, performs the analysis, and displays the results in the terminal.
+The program prints the student count, subject count, class statistics, topper information, subject averages, pass/fail statistics, and grade distribution.
 
-## Running Unit Tests
+## Run Tests
 
-The project uses Pytest to validate the analysis functions.
-
-Run all tests from the project root directory:
+Run the pytest suite from the project root:
 
 ```bash
 python -m pytest -v
 ```
 
-## Dataset
+## NumPy Concepts Used
 
-The project uses a CSV file named `student_marks.csv`.
-
-The dataset contains the following columns:
-
-| Column | Description |
-|---|---|
-| StudentID | Unique student identifier |
-| Name | Student name |
-| Maths | Mathematics marks |
-| Physics | Physics marks |
-| Chemistry | Chemistry marks |
-| ComputerScience | Computer Science marks |
-| English | English marks |
-
-Each student is evaluated across five subjects.
-
-## Concepts Practised
-
-This project demonstrates practical usage of NumPy concepts, including:
-
-- Array creation and data types
+- Two-dimensional arrays
+- Column stacking
 - Array indexing and slicing
-- Array dimensions and shapes
-- Aggregation functions (`sum`, `mean`, `min`, `max`)
-- Axis-based operations
+- Sum, mean, minimum, and maximum operations
+- Axis-based calculations
 - Boolean indexing
-- Conditional
+- `argmin`, `argmax`, `where`, `any`, and `all`
+- Grade selection and percentage calculation
+
+## Grading System
+
+Grades are assigned according to each student's average mark:
+
+| Average Marks | Grade |
+|---:|:---:|
+| 90 or above | A+ |
+| 80–89 | A |
+| 70–79 | B |
+| 60–69 | C |
+| 50–59 | D |
+| 35–49 | E |
+| Below 35 | F |
